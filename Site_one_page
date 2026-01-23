@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipage CamelBrothers - 4L Trophy 2027</title>
+    <style>
+        /* --- VARIABLES ET RESET --- */
+        :root {
+            --primary-color: #d35400; /* Orange désert (à ajuster selon ton logo) */
+            --dark-bg: #1a1a1a;
+            --text-light: #f4f4f4;
+            --sidebar-width: 250px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; scroll-behavior: smooth; display: flex; }
+
+        /* --- SOMMAIRE GAUCHE --- */
+        nav {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--dark-bg);
+            color: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            padding: 15px 0;
+            font-weight: bold;
+            transition: 0.3s;
+            display: block;
+        }
+
+        nav a:hover { color: var(--primary-color); padding-left: 10px; }
+
+        /* --- CONTENU PRINCIPAL --- */
+        main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
+
+        section { min-height: 100vh; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; }
+
+        /* --- SECTION 1 : PRESENTATION (HERO) --- */
+        #presentation {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('ton-image-4l-champs.jpg') center/cover no-repeat;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-top-left { position: absolute; top: 40px; left: 40px; text-align: left; }
+        .hero-top-right { position: absolute; top: 40px; right: 40px; text-align: right; }
+        .edition-badge { border: 2px solid white; padding: 5px 15px; display: inline-block; margin-bottom: 10px; }
+        
+        .logo-central { max-width: 300px; margin: 20px auto; }
+        
+        #countdown { font-size: 2rem; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; display: inline-block; margin-top: 20px; }
+
+        /* --- SECTION 2 : OBJECTIFS --- */
+        #objectifs { background: var(--primary-color); color: white; }
+        .obj-content { display: flex; align-items: center; gap: 40px; }
+        .obj-text { flex: 2; }
+        .obj-img { flex: 1; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        .slider { width: 100%; overflow: hidden; height: 150px; margin-top: 40px; background: white; }
+        .slider-track { display: flex; width: calc(250px * 10); animation: scroll 20s linear infinite; }
+        .slider-track img { width: 250px; height: 150px; object-fit: cover; }
+
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 5)); } }
+
+        /* --- SECTION 3 : EQUIPAGES --- */
+        .crew-container { display: flex; justify-content: space-around; gap: 20px; margin-top: 30px; }
+        .card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; width: 45%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--primary-color); margin-bottom: 15px; }
+
+        /* --- SECTION 4 : PARTENARIATS --- */
+        .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; align-items: center; margin-top: 40px; }
+        .partner-grid img { width: 100%; filter: grayscale(100%); transition: 0.3s; cursor: pointer; }
+        .partner-grid img:hover { filter: grayscale(0%); }
+
+        /* --- SECTION 5 : CONTACT & SOUTIEN --- */
+        .soutien-btn { display: inline-block; padding: 15px 30px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; }
+
+        footer { background: var(--dark-bg); color: #aaa; padding: 60px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        footer h4 { color: white; margin-bottom: 15px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }
+            main { margin-left: 0; width: 100%; }
+            .obj-content, .crew-container, footer { flex-direction: column; grid-template-columns: 1fr; }
+            .card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#presentation">PRÉSENTATION</a>
+        <a href="#objectifs">OBJECTIFS</a>
+        <a href="#equipages">ÉQUIPAGES</a>
+        <a href="#partenaires">PARTENARIATS</a>
+        <a href="#contact">NOUS SOUTENIR</a>
+    </nav>
+
+    <main>
+        <section id="presentation">
+            <div class="hero-top-left">
+                <h1>Équipage CamelBrothers <br> 4L Trophy 2027</h1>
+            </div>
+            <div class="hero-top-right">
+                <div class="edition-badge">30ème ÉDITION</div>
+                <p>12 JOURS</p>
+                <p>6000 KILOMÈTRES</p>
+            </div>
+            
+            <img src="logo.png" alt="Logo CamelBrothers" class="logo-central">
+            
+            <div>
+                <div id="countdown">Chargement du compte à rebours...</div>
+            </div>
+        </section>
+
+        <section id="objectifs">
+            <div class="obj-content">
+                <div class="obj-text">
+                    <h2>Objectif</h2>
+                    <p>Le 4L Trophy est un raid automobile humanitaire et solidaire. Chaque année, 1200 équipages étudiants parcourent plus de 6 000 km en Renault 4L jusqu’au désert marocain. L'objectif n'est pas la vitesse, mais d'apporter des denrées alimentaires et du matériel scolaire, médical et sportif aux enfants défavorisés du Maroc. Fondé sur l’entraide et la solidarité, cet événement, en partenariat avec Les Enfants du Désert, améliore les conditions d’éducation en fournissant des milliers de fournitures et en finançant la construction d’écoles.</p>
+                </div>
+                <img src="poignee-de-main.jpg" alt="Solidarité" class="obj-img">
+            </div>
+            <div class="slider">
+                <div class="slider-track">
+                    <img src="img1.jpg" alt="4L"> <img src="img2.jpg" alt="4L">
+                    <img src="img3.jpg" alt="4L"> <img src="img4.jpg" alt="4L">
+                    <img src="img5.jpg" alt="4L"> <img src="img1.jpg" alt="4L">
+                </div>
+            </div>
+        </section>
+
+        <section id="equipages">
+            <h2 style="text-align: center;">L'Équipage</h2>
+            <div class="crew-container">
+                <div class="card">
+                    <img src="adrien.jpg" alt="Adrien">
+                    <h3>ADRIEN</h3>
+                    <p><strong>Études :</strong> École d'Ingénieur</p>
+                    <p>Passionné de mécanique et toujours prêt pour l'aventure.</p>
+                </div>
+                <div class="card">
+                    <img src="erwan.jpg" alt="Erwan">
+                    <h3>ERWAN</h3>
+                    <p><strong>Études :</strong> École de Commerce</p>
+                    <p>Le stratège du duo, expert en orientation (ou presque).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="partenaires">
+            <h2 style="text-align:center">Ils nous font confiance</h2>
+            <div class="partner-grid">
+                <img src="logo-partenaire1.png" alt="Partenaire">
+                <img src="logo-partenaire2.png" alt="Partenaire">
+                <img src="logo-partenaire3.png" alt="Partenaire">
+                <img src="logo-partenaire4.png" alt="Partenaire">
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 style="text-align:center">Nous soutenir</h2>
+            <div style="text-align: center; margin-top: 30px;">
+                <p>Entrons en contact : <strong>contact@camelbrothers.fr</strong></p>
+                <a href="https://lydia-app.com/xxxx" class="soutien-btn">Faire un don via Lydia</a>
+                <a href="mailto:contact@camelbrothers.fr" class="soutien-btn">Devenir partenaire</a>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div>
+                <h4>CONTACT</h4>
+                <p>Nous serions enthousiastes d'échanger avec vous...</p>
+                <p>📞 07 67 46 73 51</p>
+                <p>📧 contact@camelbrothers.fr</p>
+                <p>📸 Instagram : @CamelBrothers</p>
+            </div>
+            <div>
+                <h4>ADRESSE</h4>
+                <p>Association 4L Labenatte</p>
+                <p>09 rue Cotrel</p>
+                <p>33000 Bordeaux, France</p>
+            </div>
+            <div>
+                <h4>NAVIGATION</h4>
+                <p><a href="#presentation" style="color:white">Haut de page</a></p>
+                <p><a href="#contact" style="color:white">Sponsoriser l'aventure</a></p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // COMPTE À REBOURS
+        const countDownDate = new Date("Feb 15, 2027 08:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "C'EST LE DÉPART !";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
