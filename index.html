@@ -7,8 +7,8 @@
     <style>
         /* --- VARIABLES ET RESET --- */
         :root {
-            --primary-color: #F3690F; /* Orange */
-            --dark-bg: #405245;      /* Kaki */
+            --primary-color: #F3690F; /* Ton Orange officiel */
+            --dark-bg: #405245;      /* Ton Kaki officiel */
             --text-light: #f4f4f4;
             --sidebar-width: 250px;
         }
@@ -52,9 +52,9 @@
         /* --- CONTENU PRINCIPAL --- */
         main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
 
-        section { min-height: 100vh; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; }
+        section { min-height: 100vh; padding: 80px 40px; display: flex; flex-direction: column; justify-content: center; }
 
-        /* --- SECTION 1 : PRESENTATION (HERO) --- */
+        /* --- SECTION 1 : PRESENTATION (PLEIN ÉCRAN) --- */
         #presentation {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('ton-image-4l-champs.jpg') center/cover no-repeat;
             color: white;
@@ -72,7 +72,7 @@
         
         #countdown { font-size: 2rem; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; display: inline-block; margin-top: 20px; }
 
-        /* --- SECTION 2 : OBJECTIFS (MODIFIÉE POUR 50/50) --- */
+        /* --- SECTION 2 : OBJECTIFS (EQUILIBRE 50/50) --- */
         #objectifs { background: var(--primary-color); color: white; }
         
         .obj-content { 
@@ -83,40 +83,43 @@
             margin: 0 auto;
         }
 
-        .obj-text { 
-            flex: 1; /* Prend exactement 50% */
-            text-align: justify;
-        }
-
-        .obj-text h2 {
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
+        .obj-text { flex: 1; text-align: justify; }
+        .obj-text h2 { margin-bottom: 20px; font-size: 2.5rem; }
 
         .obj-img { 
-            flex: 1; /* Prend exactement 50% */
+            flex: 1; 
             width: 100%;
-            max-height: 500px; /* Empêche l'image d'être trop haute */
-            object-fit: cover; /* Recadre proprement l'image */
+            max-height: 500px;
+            object-fit: cover;
             border-radius: 15px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
         }
 
+        /* --- SLIDER DÉFILEMENT INFINI (SANS PAUSE) --- */
         .slider { width: 100%; overflow: hidden; height: 150px; margin-top: 40px; background: white; }
-        .slider-track { display: flex; width: calc(250px * 10); animation: scroll 20s linear infinite; }
+        
+        .slider-track { 
+            display: flex; 
+            width: calc(250px * 10); /* 10 images au total */
+            animation: scroll 25s linear infinite; /* "linear" pour un flux continu */
+        }
+        
         .slider-track img { width: 250px; height: 150px; object-fit: cover; }
 
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 5)); } }
+        @keyframes scroll { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(calc(-250px * 5)); } /* On boucle après 5 images */
+        }
 
         /* --- SECTION 3 : EQUIPAGES --- */
         .crew-container { display: flex; justify-content: space-around; gap: 20px; margin-top: 30px; }
-        .card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; width: 45%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; width: 45%; color: #333; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .card img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--primary-color); margin-bottom: 15px; }
 
         /* --- SECTION 4 : PARTENARIATS --- */
         .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; align-items: center; margin-top: 40px; }
         .partner-grid img { width: 100%; filter: grayscale(100%); transition: 0.3s; cursor: pointer; }
-        .partner-grid img:hover { filter: grayscale(0%); }
+        .partner-grid img:hover { filter: grayscale(0%); transform: scale(1.05); }
 
         /* --- SECTION 5 : CONTACT & SOUTIEN --- */
         .soutien-btn { 
@@ -132,7 +135,7 @@
         }
         .soutien-btn:hover { transform: scale(1.05); background: #d35400; }
 
-        footer { background: var(--dark-bg); color: #aaa; padding: 60px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        footer { background: var(--dark-bg); color: #bdc3c7; padding: 60px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         footer h4 { color: white; margin-bottom: 15px; }
 
         /* --- RESPONSIVE --- */
@@ -184,11 +187,15 @@
                 </div>
                 <img src="poignee-de-main.jpg" alt="Solidarité" class="obj-img">
             </div>
+            
             <div class="slider">
                 <div class="slider-track">
                     <img src="img1.jpg" alt="4L"> <img src="img2.jpg" alt="4L">
                     <img src="img3.jpg" alt="4L"> <img src="img4.jpg" alt="4L">
-                    <img src="img5.jpg" alt="4L"> <img src="img1.jpg" alt="4L">
+                    <img src="img5.jpg" alt="4L">
+                    <img src="img1.jpg" alt="4L"> <img src="img2.jpg" alt="4L">
+                    <img src="img3.jpg" alt="4L"> <img src="img4.jpg" alt="4L">
+                    <img src="img5.jpg" alt="4L">
                 </div>
             </div>
         </section>

@@ -105,19 +105,51 @@ section {
 }
 
 .obj-text {
-  flex: 1; /* 50% de la largeur */
+  flex: 1;
   text-align: justify;
 }
 
 .obj-text h2 { margin-bottom: 20px; font-size: 2.5rem; }
 
 .obj-img {
-  flex: 1; /* 50% de la largeur */
+  flex: 1;
   width: 100%;
   max-height: 500px;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- SLIDER DÉFILEMENT INFINI (MODIFIÉ) --- */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  height: 180px;
+  margin-top: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.slider-track {
+  display: flex;
+  /* 10 images de 250px = 2500px au total */
+  width: calc(250px * 10); 
+  /* "linear" est obligatoire pour éviter les pauses entre les cycles */
+  animation: scroll 30s linear infinite;
+}
+
+.slider-track img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  padding: 0 10px; /* Petit espace entre les photos */
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  /* On décale de la moitié exacte (5 images sur les 10 présentes) */
+  100% { transform: translateX(calc(-250px * 5)); }
 }
 
 /* --- SECTION 3 : ÉQUIPAGES --- */
