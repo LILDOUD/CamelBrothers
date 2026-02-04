@@ -7,8 +7,8 @@
     <style>
         /* --- VARIABLES ET RESET --- */
         :root {
-            --primary-color: #d35400; /* Orange désert (à ajuster selon ton logo) */
-            --dark-bg: #1a1a1a;
+            --primary-color: #F3690F; /* Nouvel Orange */
+            --dark-bg: #405245;      /* Nouveau Kaki */
             --text-light: #f4f4f4;
             --sidebar-width: 250px;
         }
@@ -25,13 +25,21 @@
             position: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 20px;
+            justify-content: flex-start; /* Aligné en haut pour le logo */
+            padding: 30px 20px;
             z-index: 100;
         }
 
+        .sidebar-logo {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+
         nav a {
-            color: #888;
+            color: #bdc3c7;
             text-decoration: none;
             padding: 15px 0;
             font-weight: bold;
@@ -52,13 +60,15 @@
             color: white;
             position: relative;
             text-align: center;
+            height: 100vh; /* Force la hauteur toute la page */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-top-left { position: absolute; top: 40px; left: 40px; text-align: left; }
         .hero-top-right { position: absolute; top: 40px; right: 40px; text-align: right; }
         .edition-badge { border: 2px solid white; padding: 5px 15px; display: inline-block; margin-bottom: 10px; }
-        
-        .logo-central { max-width: 300px; margin: 20px auto; }
         
         #countdown { font-size: 2rem; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; display: inline-block; margin-top: 20px; }
 
@@ -85,7 +95,18 @@
         .partner-grid img:hover { filter: grayscale(0%); }
 
         /* --- SECTION 5 : CONTACT & SOUTIEN --- */
-        .soutien-btn { display: inline-block; padding: 15px 30px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; }
+        .soutien-btn { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            background: var(--primary-color); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            margin: 10px; 
+            font-weight: bold; 
+            transition: transform 0.2s;
+        }
+        .soutien-btn:hover { transform: scale(1.05); background: #d35400; }
 
         footer { background: var(--dark-bg); color: #aaa; padding: 60px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         footer h4 { color: white; margin-bottom: 15px; }
@@ -93,16 +114,19 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            nav { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }
+            nav { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; justify-content: space-around; padding: 10px; }
+            .sidebar-logo { width: 60px; margin-bottom: 0; padding-bottom: 0; border: none; }
             main { margin-left: 0; width: 100%; }
             .obj-content, .crew-container, footer { flex-direction: column; grid-template-columns: 1fr; }
             .card { width: 100%; }
+            #presentation { height: auto; min-height: 100vh; }
         }
     </style>
 </head>
 <body>
 
     <nav>
+        <img src="logo.png" alt="Logo CamelBrothers" class="sidebar-logo">
         <a href="#presentation">PRÉSENTATION</a>
         <a href="#objectifs">OBJECTIFS</a>
         <a href="#equipages">ÉQUIPAGES</a>
@@ -121,9 +145,7 @@
                 <p>6000 KILOMÈTRES</p>
             </div>
             
-            <img src="logo.png" alt="Logo CamelBrothers" class="logo-central">
-            
-            <div>
+            <div style="z-index: 2;">
                 <div id="countdown">Chargement du compte à rebours...</div>
             </div>
         </section>
@@ -175,10 +197,13 @@
 
         <section id="contact">
             <h2 style="text-align:center">Nous soutenir</h2>
-            <div style="text-align: center; margin-top: 30px;">
+            <div style="text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
                 <p>Entrons en contact : <strong>contact@camelbrothers.fr</strong></p>
-                <a href="https://lydia-app.com/xxxx" class="soutien-btn">Faire un don via Lydia</a>
-                <a href="mailto:contact@camelbrothers.fr" class="soutien-btn">Devenir partenaire</a>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://lydia-app.com/xxxx" class="soutien-btn">Faire un don via Lydia</a>
+                    <a href="mailto:contact@camelbrothers.fr" class="soutien-btn">Devenir partenaire</a>
+                    <a href="chemin-vers-ton-dossier.pdf" class="soutien-btn" target="_blank">📄 Dossier Sponsoring</a>
+                </div>
             </div>
         </section>
 

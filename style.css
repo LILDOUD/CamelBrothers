@@ -1,55 +1,136 @@
-/* Reset de base */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  min-height: 100vh;
+/* --- VARIABLES ET THÈME --- */
+:root {
+  --primary-color: #F3690F; /* Ton Orange CamelBrothers */
+  --dark-bg: #405245;      /* Ton Kaki */
+  --text-light: #f4f4f4;
+  --sidebar-width: 250px;
 }
 
-/* Barre latérale fixe à gauche */
-.sidebar {
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* --- BARRE LATÉRALE (SIDEBAR) --- */
+nav {
   position: fixed;
   left: 0;
   top: 0;
-  width: 220px;
+  width: var(--sidebar-width);
   height: 100vh;
-  background-color: #111;
+  background-color: var(--dark-bg); /* Kaki */
   color: white;
-  padding: 20px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
 }
 
-.sidebar h2 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-.sidebar a {
+/* Le logo en haut à gauche de la barre */
+.sidebar-logo {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 40px;
   display: block;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin: 12px 0;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+  padding-left: 8px;
+}
+
+/* --- CONTENU PRINCIPAL --- */
+main {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* --- SECTION PRÉSENTATION (PLEIN ÉCRAN) --- */
+#presentation {
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('ton-image-4l-champs.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* --- BOUTONS SOUTIEN (LES 3 BLOCS) --- */
+.soutien-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.soutien-btn {
+  display: inline-block;
+  padding: 18px 35px;
+  background-color: var(--primary-color); /* Orange */
   color: white;
   text-decoration: none;
-  margin: 15px 0;
-  font-size: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s transform ease;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.sidebar a:hover {
-  text-decoration: underline;
+.soutien-btn:hover {
+  transform: translateY(-3px);
+  background-color: #d45a0d; /* Un orange un poil plus sombre au survol */
 }
 
-/* Contenu principal */
-.content {
-  margin-left: 240px;
-  padding: 40px;
-  max-width: 900px;
-}
-
-/* Responsive */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .sidebar {
+  body {
+    flex-direction: column;
+  }
+  nav {
     position: relative;
     width: 100%;
     height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
   }
-  .content {
+  .sidebar-logo {
+    width: 50px;
+    margin-bottom: 0;
+  }
+  main {
     margin-left: 0;
+    width: 100%;
+  }
+  #presentation {
+    height: 80vh; /* On réduit un peu sur mobile pour voir la suite */
   }
 }
