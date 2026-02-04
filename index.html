@@ -7,8 +7,8 @@
     <style>
         /* --- VARIABLES ET RESET --- */
         :root {
-            --primary-color: #F3690F; /* Nouvel Orange */
-            --dark-bg: #405245;      /* Nouveau Kaki */
+            --primary-color: #F3690F; /* Orange */
+            --dark-bg: #405245;      /* Kaki */
             --text-light: #f4f4f4;
             --sidebar-width: 250px;
         }
@@ -25,7 +25,7 @@
             position: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Aligné en haut pour le logo */
+            justify-content: flex-start;
             padding: 30px 20px;
             z-index: 100;
         }
@@ -60,7 +60,7 @@
             color: white;
             position: relative;
             text-align: center;
-            height: 100vh; /* Force la hauteur toute la page */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,11 +72,35 @@
         
         #countdown { font-size: 2rem; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; display: inline-block; margin-top: 20px; }
 
-        /* --- SECTION 2 : OBJECTIFS --- */
+        /* --- SECTION 2 : OBJECTIFS (MODIFIÉE POUR 50/50) --- */
         #objectifs { background: var(--primary-color); color: white; }
-        .obj-content { display: flex; align-items: center; gap: 40px; }
-        .obj-text { flex: 2; }
-        .obj-img { flex: 1; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        .obj-content { 
+            display: flex; 
+            align-items: center; 
+            gap: 40px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+
+        .obj-text { 
+            flex: 1; /* Prend exactement 50% */
+            text-align: justify;
+        }
+
+        .obj-text h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .obj-img { 
+            flex: 1; /* Prend exactement 50% */
+            width: 100%;
+            max-height: 500px; /* Empêche l'image d'être trop haute */
+            object-fit: cover; /* Recadre proprement l'image */
+            border-radius: 15px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+        }
 
         .slider { width: 100%; overflow: hidden; height: 150px; margin-top: 40px; background: white; }
         .slider-track { display: flex; width: calc(250px * 10); animation: scroll 20s linear infinite; }
@@ -117,7 +141,9 @@
             nav { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; justify-content: space-around; padding: 10px; }
             .sidebar-logo { width: 60px; margin-bottom: 0; padding-bottom: 0; border: none; }
             main { margin-left: 0; width: 100%; }
-            .obj-content, .crew-container, footer { flex-direction: column; grid-template-columns: 1fr; }
+            .obj-content { flex-direction: column; text-align: center; }
+            .obj-text, .obj-img { width: 100%; flex: none; }
+            .crew-container, footer { flex-direction: column; grid-template-columns: 1fr; }
             .card { width: 100%; }
             #presentation { height: auto; min-height: 100vh; }
         }
@@ -230,21 +256,15 @@
     </main>
 
     <script>
-        // COMPTE À REBOURS
         const countDownDate = new Date("Feb 15, 2027 08:00:00").getTime();
-
         const x = setInterval(function() {
             const now = new Date().getTime();
             const distance = countDownDate - now;
-
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
-            + minutes + "m " + seconds + "s ";
-
+            document.getElementById("countdown").innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("countdown").innerHTML = "C'EST LE DÉPART !";
