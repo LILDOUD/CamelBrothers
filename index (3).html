@@ -843,6 +843,9 @@
             <div class="hero-bg"></div>
             <div class="hero-gradient"></div>
             <div class="hero-content">
+
+                <img src="logo-4l-trophy.png" alt="4L Trophy" style="height: 55px; width: auto; display: block; margin-bottom: 20px; opacity: 0.9; filter: brightness(0) invert(1);">
+
                 <div class="hero-eyebrow">
                     <div class="hero-eyebrow-line"></div>
                     <span>30ème Édition — Raid Humanitaire</span>
@@ -872,17 +875,28 @@
                     </div>
                 </div>
 
-                <img src="logo-4l-trophy.png" alt="4L Trophy" style="height: 60px; width: auto; display: block; margin-bottom: 30px; opacity: 0.85; filter: brightness(0) invert(1);">
-
                 <div id="countdown">
-                    <div class="cd-block"><div class="cd-num" id="cd-days">---</div><div class="cd-label">Jours</div></div>
+                    <div class="cd-block">
+                        <div class="cd-num" id="cd-days">0</div>
+                        <div class="cd-label">Jours</div>
+                    </div>
                     <div class="cd-sep">:</div>
-                    <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Heures</div></div>
+                    <div class="cd-block">
+                        <div class="cd-num" id="cd-hours">00</div>
+                        <div class="cd-label">Heures</div>
+                    </div>
                     <div class="cd-sep">:</div>
-                    <div class="cd-block"><div class="cd-num" id="cd-min">--</div><div class="cd-label">Min</div></div>
+                    <div class="cd-block">
+                        <div class="cd-num" id="cd-min">00</div>
+                        <div class="cd-label">Min</div>
+                    </div>
                     <div class="cd-sep">:</div>
-                    <div class="cd-block"><div class="cd-num" id="cd-sec">--</div><div class="cd-label">Sec</div></div>
+                    <div class="cd-block">
+                        <div class="cd-num" id="cd-sec">00</div>
+                        <div class="cd-label">Sec</div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -1072,4 +1086,13 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.crew-card, .tier-logo-bo
+        document.querySelectorAll('.crew-card, .tier-logo-box, .contact-info-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
