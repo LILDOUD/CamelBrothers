@@ -142,7 +142,6 @@
             filter: brightness(0.4) saturate(0.8);
         }
 
-        /* Grain texture overlay */
         .hero-bg::after {
             content: '';
             position: absolute;
@@ -238,9 +237,7 @@
             backdrop-filter: blur(4px);
         }
 
-        .cd-block {
-            text-align: center;
-        }
+        .cd-block { text-align: center; }
 
         .cd-num {
             font-family: 'Bebas Neue', sans-serif;
@@ -264,7 +261,7 @@
             margin-bottom: 10px;
         }
 
-        /* ==================== SECTION OBJECTIFS ==================== */
+        /* ==================== OBJECTIFS ==================== */
         #objectifs {
             background: var(--kaki);
             padding: 120px 60px;
@@ -333,9 +330,7 @@
             font-weight: 300;
         }
 
-        .obj-img-wrap {
-            position: relative;
-        }
+        .obj-img-wrap { position: relative; }
 
         .obj-img-wrap img {
             width: 100%;
@@ -344,20 +339,6 @@
             border-radius: 4px;
             display: block;
             background: var(--kaki-dark);
-        }
-
-        .obj-img-placeholder {
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, var(--kaki-dark) 0%, #1a2420 100%);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            color: rgba(255,255,255,0.15);
         }
 
         .obj-img-badge {
@@ -410,19 +391,6 @@
             position: relative;
         }
 
-        .slider-track .slide-placeholder {
-            width: 220px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--kaki) 0%, var(--kaki-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 3px;
-            color: rgba(255,255,255,0.1);
-            font-size: 0.8rem;
-        }
-
         .slider-track img {
             width: 220px;
             height: 200px;
@@ -457,9 +425,7 @@
             pointer-events: none;
         }
 
-        .section-header {
-            margin-bottom: 70px;
-        }
+        .section-header { margin-bottom: 70px; }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
@@ -504,22 +470,7 @@
             object-fit: cover;
         }
 
-        .crew-card-img-placeholder {
-            width: 100%;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--orange);
-            opacity: 0.5;
-        }
-
-        .crew-card-info {
-            padding: 25px;
-            flex: 1;
-        }
+        .crew-card-info { padding: 25px; flex: 1; }
 
         .crew-role {
             font-family: 'Barlow Condensed', sans-serif;
@@ -561,6 +512,239 @@
             border-radius: 3px;
         }
 
+        /* ==================== VÉHICULE ==================== */
+        #vehicule {
+            background: var(--black);
+            padding: 120px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #vehicule::before {
+            content: '4L';
+            position: absolute;
+            top: -40px; right: -30px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20rem;
+            color: rgba(255,255,255,0.02);
+            letter-spacing: -10px;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .vehicule-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 70px;
+            max-width: 1100px;
+        }
+
+        .vehicule-header-left {}
+
+        .vehicule-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding-bottom: 8px;
+        }
+
+        .veh-nav-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .veh-nav-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            background: rgba(243,105,15,0.08);
+        }
+
+        .veh-slide-counter {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.2);
+            margin: 0 5px;
+        }
+
+        .vehicule-slider-outer {
+            position: relative;
+            max-width: 1100px;
+            overflow: hidden;
+        }
+
+        .vehicule-slides-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vehicule-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .veh-slide-img-wrap {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .veh-slide-img-wrap img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.85);
+            transition: filter 0.4s, transform 0.6s;
+        }
+
+        .vehicule-slide:hover .veh-slide-img-wrap img {
+            filter: saturate(1.1);
+            transform: scale(1.02);
+        }
+
+        /* Image overlay avec numéro de slide */
+        .veh-slide-num-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.06);
+            line-height: 1;
+            pointer-events: none;
+            letter-spacing: -2px;
+        }
+
+        /* Barre orange décorative en bas de l'image */
+        .veh-slide-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vehicule-slide:hover .veh-slide-img-wrap::after {
+            transform: scaleX(1);
+        }
+
+        .veh-slide-content { padding: 10px 0; }
+
+        .veh-slide-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .veh-slide-tag::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--orange);
+            flex-shrink: 0;
+        }
+
+        .veh-slide-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            color: var(--white);
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 22px;
+        }
+
+        .veh-slide-title em {
+            color: var(--orange);
+            font-style: normal;
+        }
+
+        .veh-slide-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.92rem;
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        /* Specs techniques en petites pilules */
+        .veh-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .veh-spec-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 3px;
+            padding: 8px 14px;
+        }
+
+        .veh-spec-pill-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .veh-spec-pill-val {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            color: var(--orange);
+            letter-spacing: 1px;
+        }
+
+        /* Dots de navigation */
+        .veh-dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 40px;
+            max-width: 1100px;
+        }
+
+        .veh-dot {
+            height: 2px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.4s;
+            flex: 1;
+            max-width: 60px;
+        }
+
+        .veh-dot.active {
+            background: var(--orange);
+            max-width: 80px;
+        }
+
         /* ==================== PARTENAIRES ==================== */
         #partenaires {
             padding: 120px 60px;
@@ -581,11 +765,7 @@
             margin-top: 15px;
         }
 
-        .partner-tiers {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
+        .partner-tiers { display: flex; flex-direction: column; gap: 40px; }
 
         .partner-tier {
             border-top: 1px solid rgba(64,82,69,0.15);
@@ -638,7 +818,7 @@
             color: rgba(64,82,69,0.25);
         }
 
-        /* ==================== SOUTENIR / CONTACT ==================== */
+        /* ==================== CONTACT ==================== */
         #contact {
             background: var(--kaki-dark);
             padding: 120px 60px;
@@ -671,11 +851,7 @@
             margin-bottom: 40px;
         }
 
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
 
         .btn-primary {
             display: inline-flex;
@@ -695,10 +871,7 @@
             transition: all 0.3s;
         }
 
-        .btn-primary:hover {
-            background: #d35400;
-            transform: translateX(5px);
-        }
+        .btn-primary:hover { background: #d35400; transform: translateX(5px); }
 
         .btn-secondary {
             display: inline-flex;
@@ -718,15 +891,9 @@
             transition: all 0.3s;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--orange);
-            color: var(--orange);
-            transform: translateX(5px);
-        }
+        .btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateX(5px); }
 
-        .contact-right {
-            padding-top: 10px;
-        }
+        .contact-right { padding-top: 10px; }
 
         .contact-info-item {
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -780,15 +947,9 @@
             color: rgba(255,255,255,0.2);
         }
 
-        .footer-brand em {
-            color: var(--orange);
-            font-style: normal;
-        }
+        .footer-brand em { color: var(--orange); font-style: normal; }
 
-        .footer-links {
-            display: flex;
-            gap: 30px;
-        }
+        .footer-links { display: flex; gap: 30px; }
 
         .footer-links a {
             font-family: 'Barlow Condensed', sans-serif;
@@ -815,8 +976,11 @@
             .hero-stats { gap: 20px; flex-wrap: wrap; }
             .hero-content { padding: 40px 30px; }
             .obj-grid, .crew-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-            #objectifs, #equipages, #partenaires, #contact { padding: 80px 30px; }
+            #objectifs, #equipages, #vehicule, #partenaires, #contact { padding: 80px 30px; }
             footer { flex-direction: column; gap: 20px; padding: 30px; }
+            .vehicule-slide { grid-template-columns: 1fr; }
+            .veh-slide-img-wrap img { height: 280px; }
+            .vehicule-header { flex-direction: column; align-items: flex-start; gap: 20px; }
         }
     </style>
 </head>
@@ -831,8 +995,9 @@
         <a href="#presentation">01 — Présentation</a>
         <a href="#objectifs">02 — Objectifs</a>
         <a href="#equipages">03 — L'Équipage</a>
-        <a href="#partenaires">04 — Partenaires</a>
-        <a href="#contact">05 — Nous soutenir</a>
+        <a href="#vehicule">04 — Le Véhicule</a>
+        <a href="#partenaires">05 — Partenaires</a>
+        <a href="#contact">06 — Nous soutenir</a>
         <div class="nav-bottom">30ème Édition · Maroc</div>
     </nav>
 
@@ -844,7 +1009,7 @@
             <div class="hero-gradient"></div>
             <div class="hero-content">
 
-                <img src="4L_Trophy_Logo.svg.png" alt="4L Trophy" style="height: 55px; width: auto; display: block; margin-bottom: 20px; opacity: 0.9; filter: brightness(0) invert(1);">
+                <img src="logo-4l-trophy.png" alt="4L Trophy" style="height: 55px; width: auto; display: block; margin-bottom: 20px; opacity: 0.9; filter: brightness(0) invert(1);">
 
                 <div class="hero-eyebrow">
                     <div class="hero-eyebrow-line"></div>
@@ -966,6 +1131,146 @@
             </div>
         </section>
 
+        <!-- ========== VÉHICULE ========== -->
+        <section id="vehicule">
+            <div class="vehicule-header">
+                <div class="vehicule-header-left">
+                    <div class="section-tag" style="color: var(--orange);">Notre monture</div>
+                    <h2 class="section-title" style="color: var(--white);">LE VÉHICULE</h2>
+                </div>
+                <div class="vehicule-nav">
+                    <button class="veh-nav-btn" id="veh-prev" aria-label="Précédent">&#8592;</button>
+                    <span class="veh-slide-counter"><span id="veh-current">1</span> / <span id="veh-total">4</span></span>
+                    <button class="veh-nav-btn" id="veh-next" aria-label="Suivant">&#8594;</button>
+                </div>
+            </div>
+
+            <div class="vehicule-slider-outer">
+                <div class="vehicule-slides-track" id="veh-track">
+
+                    <!-- SLIDE 1 — Présentation générale -->
+                    <div class="vehicule-slide">
+                        <div class="veh-slide-img-wrap">
+                            <div class="veh-slide-num-overlay">01</div>
+                            <img src="vehicule-1.jpg" alt="La Renault 4L" onerror="this.style.background='linear-gradient(135deg,#2b3830,#1a2420)'; this.style.height='420px'; this.removeAttribute('onerror');">
+                        </div>
+                        <div class="veh-slide-content">
+                            <div class="veh-slide-tag">Présentation</div>
+                            <h3 class="veh-slide-title">RENAULT <em>4L</em><br>1985</h3>
+                            <p class="veh-slide-text">Icône de la mobilité française, notre Renault 4L millésime 1985 est la star du raid. Robuste, légère et iconique, elle est la seule voiture homologuée pour le 4L Trophy. C'est à bord de cette légende que nous traverserons déserts, pistes et dunes jusqu'au cœur du Maroc.</p>
+                            <div class="veh-specs">
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Année</span>
+                                    <span class="veh-spec-pill-val">1985</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Moteur</span>
+                                    <span class="veh-spec-pill-val">1.1L</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Puissance</span>
+                                    <span class="veh-spec-pill-val">34 ch</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Poids</span>
+                                    <span class="veh-spec-pill-val">690 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2 — Préparation mécanique -->
+                    <div class="vehicule-slide">
+                        <div class="veh-slide-img-wrap">
+                            <div class="veh-slide-num-overlay">02</div>
+                            <img src="vehicule-2.jpg" alt="Préparation mécanique" onerror="this.style.background='linear-gradient(135deg,#2b3830,#1a2420)'; this.style.height='420px'; this.removeAttribute('onerror');">
+                        </div>
+                        <div class="veh-slide-content">
+                            <div class="veh-slide-tag">Préparation</div>
+                            <h3 class="veh-slide-title">SOUS LE <em>CAPOT</em></h3>
+                            <p class="veh-slide-text">Révision complète du moteur, remplacement des joints, vidange, freins, amortisseurs renforcés… Chaque pièce est vérifiée pour encaisser 6 000 km de pistes cahoteuses. La préparation mécanique est aussi une aventure en soi, que nous réalisons avec passion.</p>
+                            <div class="veh-specs">
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Amortisseurs</span>
+                                    <span class="veh-spec-pill-val">Renforcés</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Garde au sol</span>
+                                    <span class="veh-spec-pill-val">+4 cm</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Pneus</span>
+                                    <span class="veh-spec-pill-val">Tout-terrain</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3 — Sérigraphie & identité -->
+                    <div class="vehicule-slide">
+                        <div class="veh-slide-img-wrap">
+                            <div class="veh-slide-num-overlay">03</div>
+                            <img src="vehicule-3.jpg" alt="Sérigraphie CamelBrothers" onerror="this.style.background='linear-gradient(135deg,#2b3830,#1a2420)'; this.style.height='420px'; this.removeAttribute('onerror');">
+                        </div>
+                        <div class="veh-slide-content">
+                            <div class="veh-slide-tag">Identité visuelle</div>
+                            <h3 class="veh-slide-title">AUX <em>COULEURS</em><br>DE L'AVENTURE</h3>
+                            <p class="veh-slide-text">Notre 4L arborera fièrement les couleurs CamelBrothers et celles de nos partenaires. Sérigraphie personnalisée, numéro de course officiel et stickers : elle sera reconnaissable entre mille sur les pistes marocaines. Un vrai billboard roulant pour votre marque !</p>
+                            <div class="veh-specs">
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Couleur</span>
+                                    <span class="veh-spec-pill-val">Kaki & Orange</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Covering</span>
+                                    <span class="veh-spec-pill-val">Full</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Logos partenaires</span>
+                                    <span class="veh-spec-pill-val">Inclus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 4 — Équipement intérieur -->
+                    <div class="vehicule-slide">
+                        <div class="veh-slide-img-wrap">
+                            <div class="veh-slide-num-overlay">04</div>
+                            <img src="vehicule-4.jpg" alt="Équipement intérieur" onerror="this.style.background='linear-gradient(135deg,#2b3830,#1a2420)'; this.style.height='420px'; this.removeAttribute('onerror');">
+                        </div>
+                        <div class="veh-slide-content">
+                            <div class="veh-slide-tag">Équipement</div>
+                            <h3 class="veh-slide-title">PRÊTE POUR <em>LE RAID</em></h3>
+                            <p class="veh-slide-text">Harnais homologués, arceau de sécurité, extincteur, jerricans supplémentaires, GPS et trousse de secours complète. Notre 4L est équipée selon le règlement strict du 4L Trophy pour garantir la sécurité de l'équipage à chaque étape.</p>
+                            <div class="veh-specs">
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Harnais</span>
+                                    <span class="veh-spec-pill-val">4 points</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Réserve carburant</span>
+                                    <span class="veh-spec-pill-val">+20 L</span>
+                                </div>
+                                <div class="veh-spec-pill">
+                                    <span class="veh-spec-pill-label">Navigation</span>
+                                    <span class="veh-spec-pill-val">GPS + Roadbook</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /vehicule-slides-track -->
+            </div><!-- /vehicule-slider-outer -->
+
+            <div class="veh-dots" id="veh-dots">
+                <div class="veh-dot active" data-index="0"></div>
+                <div class="veh-dot" data-index="1"></div>
+                <div class="veh-dot" data-index="2"></div>
+                <div class="veh-dot" data-index="3"></div>
+            </div>
+        </section>
+
         <!-- ========== PARTENAIRES ========== -->
         <section id="partenaires">
             <div class="partner-intro">
@@ -1026,18 +1331,14 @@
                         <div class="contact-icon">📧</div>
                         <div>
                             <div class="contact-info-label">Email</div>
-                            <div class="contact-info-val">
-                                <a href="mailto:contact@camelbrothers.fr">contact@camelbrothers.fr</a>
-                            </div>
+                            <div class="contact-info-val"><a href="mailto:contact@camelbrothers.fr">contact@camelbrothers.fr</a></div>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-icon">📸</div>
                         <div>
                             <div class="contact-info-label">Instagram</div>
-                            <div class="contact-info-val">
-                                <a href="https://www.instagram.com/CamelBrothers" target="_blank">@CamelBrothers</a>
-                            </div>
+                            <div class="contact-info-val"><a href="https://www.instagram.com/CamelBrothers" target="_blank">@CamelBrothers</a></div>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -1056,6 +1357,7 @@
             <div class="footer-links">
                 <a href="#presentation">Accueil</a>
                 <a href="#objectifs">Mission</a>
+                <a href="#vehicule">Véhicule</a>
                 <a href="#contact">Contact</a>
                 <a href="chemin-vers-ton-dossier.pdf">Sponsoring</a>
             </div>
@@ -1063,7 +1365,9 @@
 
     </main>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // ---- COUNTDOWN ----
         const target = new Date("Feb 15, 2027 08:00:00").getTime();
         function update() {
             const now = Date.now();
@@ -1080,7 +1384,7 @@
         update();
         setInterval(update, 1000);
 
-        // Fade-in on scroll
+        // ---- FADE IN ON SCROLL ----
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -1096,6 +1400,39 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
         });
+
+        // ---- VEHICULE SLIDER ----
+        (function() {
+            const track    = document.getElementById('veh-track');
+            const dots     = document.querySelectorAll('.veh-dot');
+            const current  = document.getElementById('veh-current');
+            const total    = document.getElementById('veh-total');
+            const btnPrev  = document.getElementById('veh-prev');
+            const btnNext  = document.getElementById('veh-next');
+            const slides   = document.querySelectorAll('.vehicule-slide');
+            let idx = 0;
+
+            total.textContent = slides.length;
+
+            function goTo(n) {
+                idx = (n + slides.length) % slides.length;
+                track.style.transform = `translateX(-${idx * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                current.textContent = idx + 1;
+            }
+
+            btnNext.addEventListener('click', () => goTo(idx + 1));
+            btnPrev.addEventListener('click', () => goTo(idx - 1));
+            dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+            // Swipe touch support
+            let startX = 0;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) goTo(diff > 0 ? idx + 1 : idx - 1);
+            });
+        })();
     </script>
 
 </body>
